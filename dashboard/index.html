@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LaunchScope — Token Launch Radar</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="mark" aria-hidden="true">◉</div>
+    <div>
+      <h1>LaunchScope</h1>
+      <p class="tag">Token launch radar — pre-token protocols ranked by implied value</p>
+    </div>
+  </div>
+  <dl class="stats" id="stats"></dl>
+</header>
+<section class="model" id="model"></section>
+<nav class="controls" aria-label="Board controls">
+  <div class="tabs" role="tablist">
+    <button id="tab-pre" class="tab on" role="tab" aria-selected="true">Pre-token board</button>
+    <button id="tab-live" class="tab" role="tab" aria-selected="false">Live tokens</button>
+  </div>
+  <label class="field">Search
+    <input id="q" type="search" placeholder="Protocol name or slug" autocomplete="off">
+  </label>
+  <label class="field">Category
+    <select id="category"></select>
+  </label>
+  <label class="field">Chain
+    <select id="chain"></select>
+  </label>
+  <label class="field">Sort by
+    <select id="sort">
+      <option value="implied">Implied value</option>
+      <option value="tvl">TVL</option>
+      <option value="growth">7-day growth</option>
+      <option value="age">Age</option>
+      <option value="name">Name</option>
+    </select>
+  </label>
+  <label class="check"><input id="watchlist" type="checkbox"> Watchlist only</label>
+</nav>
+<main>
+  <div class="layout">
+    <section class="board-wrap">
+      <table class="board" id="board">
+        <thead>
+          <tr>
+            <th class="num">#</th>
+            <th>Protocol</th>
+            <th>Category</th>
+            <th>Chains</th>
+            <th class="num">TVL</th>
+            <th class="num">7d</th>
+            <th class="num">Age</th>
+            <th class="num">Implied value</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <p class="count" id="count"></p>
+    </section>
+    <aside class="detail" id="detail" aria-live="polite"></aside>
+  </div>
+</main>
+<footer class="foot" id="foot"></footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
